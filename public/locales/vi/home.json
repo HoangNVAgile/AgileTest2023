@@ -1,44 +1,10 @@
 {
-  "home_title": "Trang chủ",
-  "lang.us": "Mỹ",
-  "lang.vi": "Việt Nam",
-  "header_start_trial": "Dùng Thử Miễn Phí",
-  "header_start_trial_now": "Dùng Thử Miễn Phí Ngay",
-  "hero_title": "Lên Lịch Hẹn <span>Dễ Dàng</span><br />Với Maby",
-  "hero_desc": "Maby mang đến sự tiện lợi cho bạn qua tính năng lên lịch hẹn online cùng những công cụ quản lý kinh doanh mà bạn cần để vận hành thành công Salon của bạn",
-
-  "section_about_title1": "Tạm biệt sổ bút",
-  "section_about_desc1": "Đã đến lúc quên đi cách làm việc truyền thống! Maby sẽ giúp bạn quản lý lịch đặt hẹn thật dễ dàng mọi lúc mọi nơi mà không cần giấy bút. Lịch hẹn được đồng bộ theo thời gian thực, chia việc cho thợ dễ dàng, giảm thời gian trống của tiệm. Chuyển sang quản lý online là cách đơn giản nhất để tiết kiệm chi phí và tối ưu doanh thu.",
-
-  "section2_title": "Có thêm khách hàng mới",
-  "section2_desc": "Mỗi ngày có hàng trăm nghìn lượt tìm kiếm và đặt hẹn trên Maby. Bạn còn chờ gì nữa? Hãy sử dụng Maby ngay và tận dụng nguồn khách hàng miễn phí khổng lồ này!",
-
-  "section3_title": "Không còn lo khách lỡ hẹn",
-  "section3_desc": "Cuộc sống bận rộn khiến ai cũng có thể quên! Nhưng Maby có tính năng tự động nhắc khi sắp đến hẹn qua Email, SMS,... Bạn sẽ không còn phải lo lắng về vấn đề này nữa!",
-
-  "section4_title1": "Giữ chân khách hàng cũ",
-  "section4_desc1": "Chúng tôi hiểu rằng việc chăm sóc khách hàng cũ cũng quan trọng như tìm kiếm khách hàng mới! Hệ thống của Maby tích hợp sẵn các bộ lọc khách hàng như: khách lâu chưa trở lại, khách sắp đến sinh nhật,.. để bạn có thể chủ động hỏi thăm, gửi voucher,...cho họ.",
-
-  "section4_title2": "<span>Tiết kiệm thời gian</span>",
-  "section4_desc2": "Bạn luôn mệt mỏi khi không thể quản lý hết công việc của tiệm mình? Đã có Maby! Quản lý lịch hẹn, chia việc cho thợ, kiểm tra doanh thu,..mọi việc rất đơn giản chỉ với vài thao tác. Bạn có thể điều khiển công việc kinh doanh ở bất cứ đâu! Giúp bạn có nhiều thời gian hơn cho bản thân, gia đình và cuộc sống.",
-
-  "section_feature_title": "Tính năng giúp phát triển việc kinh doanh của bạn",
-
-  "section_feature_item_title1": "Tính năng nổi bật thúc đẩy công việc",
-  "section_feature_item_desc1": "Bắt đầu một ngày mới với Maby - ứng dụng quản lý tiệm Nail hàng đầu hiện nay. Mọi thao tác bạn cần đều có trên Maby!",
-  "section_feature_item_title2": "Quản lý lịch hẹn trực quan",
-  "section_feature_item_desc2": "Lịch hẹn của tiệm được hiển thị trên Maby rất dễ nhìn, trực quan theo thứ tự thời gian. Bạn chỉ cần chọn lịch hẹn muốn xử lý và mọi thao tác bạn cần đều có sẵn!",
-  "section_feature_item_title3": "Giao việc cho thợ dễ dàng",
-  "section_feature_item_desc3": "Dù bạn muốn đổi thợ trong lịch hẹn, hay kiểm tra xem thợ nào còn trống lịch để xếp việc, chúng tôi đều đáp ứng được. Việc quản lý, điều phối thợ trong tiệm chưa bao giờ đơn giản đến thế!",
-  "section_feature_item_title4": "Công cụ tiếp thị thông minh",
-  "section_feature_item_desc4": "Bạn có thể tự do lên ý tưởng cho những chương trình khuyến mãi của tiệm, tạo Voucher trên hệ thống. Sau đó sử dụng công cụ gửi SMS hàng loạt của Maby để truyền thông tin đến khách hàng! Chắc chắn lượng khách đến với tiệm sẽ tăng đột biến!",
-  "section_feature_item_title5": "Hỗ trợ thanh toán linh hoạt ",
-  "section_feature_item_desc5": "Maby hỗ trợ rất nhiều hình thức thanh toán khác nhau. Dù khách hàng của bạn muốn thanh toán tiền mặt hay thanh toán bằng thẻ tín dụng, paypal,...chúng tôi đều có sẵn!",
-  "section_feature_item_title6": "Báo cáo kinh doanh nhanh chóng",
-  "section_feature_item_desc6": "Hiển thị báo cáo trực quan với những biểu đồ đơn giản, dễ hiểu. Cung cấp những thông tin đầy đủ nhất về tình hình kinh doanh của tiệm. Giúp bạn dễ dàng đánh giá và tối ưu công việc kinh doanh của mình.",
-
-  "section_trial_title": "Hãy Bắt Đầu Dùng Thử & Bạn Sẽ ",
-  "section_trial_desc": "Thấy Maby Tuyệt Vời Như Thế Nào!",
-  "btn_free_trial": "Dùng Thử Miễn Phí",
-  "btn_dashboard": "Quản trị"
+  "lang_en": "Tiếng Anh",
+  "lang_vi": "Tiếng Việt",
+  "login": "Đăng nhập",
+  "login_container_content": "Nhấn để đăng nhập!",
+  "get_posts": "DS bài đăng",
+  "get_posts_container_content": "Nhấn để lấy danh sách bài đăng!",
+  "log_out": "Đăng xuất",
+  "log_out_container_content": "Nhấn để đăng xuất!"
 }

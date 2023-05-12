@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Inter } from 'next/font/google';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker, Circle } from "@react-google-maps/api";
 
 import styles from '@/styles/Home.module.css';
 import { useAuth } from '@/store/auth/useAuth';
@@ -12,18 +12,32 @@ import { useGetPosts, useLogin } from './service';
 import { getAccessToken } from '@/store/auth';
 import { ENV } from '@utils/env';
 
+interface IMarkder {
+  lat: number;
+  lng: number;
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Home = () => {
-  const [loginStatus, setLoginStatus] = useState(getAccessToken() ? 'Logged in!' : 'Not log in!');
-  const { onLogin } = useAuth();
-  const {dataPosts, run: runGetPosts} = useGetPosts();
+  const isLoggedIn = !!getAccessToken();
+  const [loginStatus, setLoginStatus] = useState(isLoggedIn ? 'Logged in!' : 'Not log in!');
+  const { onLogin, onLogout } = useAuth();
+  const { dataPosts, run: runGetPosts } = useGetPosts();
+  const [marker, setMarker] = useState<IMarkder>({ lat: 21.019031654681395, lng: 105.83697505428268 });
+
+  const onMapClick = (e: any) => {
+    setMarker(
+      {
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng()
+      }
+    );
+  };
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: ENV.GOOGLE_MAP_API_KEY,
   });
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
 
   const { t } = useTranslation('home');
   const router = useRouter();
@@ -49,7 +63,7 @@ const Home = () => {
           token: res?.accessToken,
           refreshToken: res?.refreshToken,
         });
-      setLoginStatus('Logged in!');
+        setLoginStatus('Logged in!');
       }
     },
     onError(e) {
@@ -59,7 +73,13 @@ const Home = () => {
 
   const onGetPosts = () => {
     runGetPosts()
-  }
+  };
+
+  const onSubmitLogout = () => {
+    onLogout();
+    setLoginStatus('Not log in!');
+    runGetPosts();
+  };
 
 
   if (!isLoaded) return null;
@@ -74,8 +94,8 @@ const Home = () => {
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
           <div className={styles.languageContainer}>
-            <div onClick={onChangeLang('vi')} className={styles.languageText}>Tiếng Việt</div>
-            <div onClick={onChangeLang('en')} className={styles.languageText}>English</div>
+            <div onClick={onChangeLang('vi')} className={styles.languageText}>{t('lang_vi')}</div>
+            <div onClick={onChangeLang('en')} className={styles.languageText}>{t('lang_en')}</div>
           </div>
           <div>
             <a
@@ -108,7 +128,7 @@ const Home = () => {
         </div>
 
         <div className={styles.grid}>
-          <a 
+          <a
             className={styles.card}
             onClick={onSubmitLogin}
           >
@@ -133,38 +153,21 @@ const Home = () => {
           </a>
 
           <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={onSubmitLogout}
           >
             <h2>
-              Templates <span>-&gt;</span>
+              {t('log_out')} <span>-&gt;</span>
             </h2>
             <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
+              {t('log_out_container_content')}
             </p>
           </a>
         </div>
 
         <div className={styles.contentContainer}>
           <p>{loginStatus}</p>
-          {dataPosts?.posts.map((item: any, index: number) => (
+          {isLoggedIn && dataPosts?.posts.map((item: any, index: number) => (
             <>
               Post {index}: {item.title}
               <br />
@@ -172,8 +175,22 @@ const Home = () => {
           ))}
         </div>
 
-        <GoogleMap zoom={10} center={center} mapContainerClassName={styles.mapContainer}>
-          <Marker position={center} />
+        <GoogleMap zoom={10} center={marker} mapContainerClassName={styles.mapContainer} onClick={onMapClick}>
+          <Marker
+            position={{
+              lat: marker.lat,
+              lng: marker.lng
+            }} />
+          <Circle
+            center={marker}
+            radius={5000}
+            onLoad={() => console.log('Circle Load...')}
+            options={{
+              fillColor: 'red',
+              strokeColor: 'red',
+              strokeOpacity: 0.8,
+            }}
+          />
         </GoogleMap>
       </main>
     </>

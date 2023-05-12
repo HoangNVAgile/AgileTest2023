@@ -1,6 +1,6 @@
 .languageContainer {
   display: flex;
-  min-width: 200px;
+  min-width: 240px;
   justify-content: space-between;
   background-color: white;
   padding: 20px;
@@ -10,6 +10,7 @@
 .languageContainer .languageText {
   cursor: pointer;
   text-decoration: underline;
+  color: black;
 }
 
 .languageContainer .languageText:hover {
@@ -28,6 +29,7 @@
   padding: 20px;
   border-radius: 15px;
   margin-top: 20px;
+  color: black;
 }
 
 .main {

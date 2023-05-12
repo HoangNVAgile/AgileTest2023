@@ -81,7 +81,7 @@ const privateRequest = async (request: any, suffixUrl: string, configs?: any) =>
 const API_PATH = {
   // Auth
   AUTH_LOGIN: '/auth/login',
-  AUTH_LOGOUT: 'auth/logout',
+  AUTH_LOGOUT: '/auth/logout',
   GET_POSTS: '/posts',
 };
 

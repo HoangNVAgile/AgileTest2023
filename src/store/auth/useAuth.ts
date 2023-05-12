@@ -15,7 +15,7 @@ export interface IAuth {
 export const useAuth = () => {
   const requestLogout = useRequest(
     async (token: any) => {
-      return request.post(`${PREFIX_API}${API_PATH.AUTH_LOGOUT}`, {
+      return request.delete(`${PREFIX_API}${API_PATH.AUTH_LOGOUT}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,10 +29,9 @@ export const useAuth = () => {
   const onLogout = async () => {
     try {
       const token = getAccessToken();
+      console.log(token);
       requestLogout.run(token);
       deleteAuthCookies();
-      // onResetProfile();
-      // await router.replace(ROUTE_PATH.Auth);
     } catch (error) {
       console.log('Logout error', error);
     }
