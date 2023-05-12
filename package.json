@@ -1,0 +1,36 @@
+{
+  "name": "hoangnv-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
+    "@types/node": "20.1.2",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "ahooks": "^3.7.7",
+    "brainless-token-manager": "^1.3.1",
+    "cookies-next": "^2.1.1",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.1",
+    "i18next": "^22.4.15",
+    "next": "13.4.1",
+    "next-i18next": "^13.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "^12.2.2",
+    "typescript": "5.0.4",
+    "umi-request": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
+  }
+}
