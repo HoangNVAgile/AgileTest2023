@@ -1,38 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Mô tả:
+1. Sử dụng thư viện next-i18next. Tạo folder public/locales cho các mã ngôn ngữ, set up i18next config trong file next-i18next.config. 
+Trang web đã ngôn ngữ, dịch theo các file json được định nghĩa sẵn, để truy cập vào trang với ngôn ngữ thì truy cập vào path 'website-name/{mã ngôn ngữ tương ứng}'.
+2. Định nghĩa file request để call api, các phương thức trong useAuth để store token và refresh token vào cookie.
+set token: Đăng nhập -> lấy token từ response -> set token vào cookie. Mỗi lần gọi các api khác, sử dụng phương thức privateRequest đã được định nghĩa để call api với token.
+refresh token: Trong trong phương thức request sẽ sử dụng TokenManager từ thư viện brainless-token-manager để lấy token call api, đồng thời cũng cài đặt các phương thức onInvalidRefreshToken() để kiểm tra refresh token, executeRefreshToken() để thực hiện refresh token, lấy token và refresh token mới nếu token cũ hết hạn.
+3. Config file Dockerfile để tạo môi trường chung khi build project. Chia thành 3 stage: base, build, production
+4. Sử dụng thư viện @react-google-maps/api. Gen api key trên gg map playform. Sử dụng component <GoogleMap> để gen map, <Marker> để vẽ marker theo lat, lng, <Circle> để vẽ hình tròn. Cách làm tạo 1 state marker, trong event onCLick vào gg map sẽ setState marker và truyền vào <Marker> và <Circle>.

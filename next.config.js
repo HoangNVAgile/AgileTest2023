@@ -9,6 +9,11 @@ const nextConfig = {
     APP_API_URL: process.env.NEXT_PUBLIC_APP_API_URL,
     GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
   },
+  experimental: {
+    outputStandalone: true,
+  },
+  serializeConfig: false,
+  output: "standalone",
 }
 
 module.exports = nextConfig

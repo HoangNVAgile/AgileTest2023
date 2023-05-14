@@ -24,7 +24,7 @@ const Home = () => {
   const [loginStatus, setLoginStatus] = useState(isLoggedIn ? 'Logged in!' : 'Not log in!');
   const { onLogin, onLogout } = useAuth();
   const { dataPosts, run: runGetPosts } = useGetPosts();
-  const [marker, setMarker] = useState<IMarkder>({ lat: 21.019031654681395, lng: 105.83697505428268 });
+  const [marker, setMarker] = useState<IMarkder>();
 
   const onMapClick = (e: any) => {
     setMarker(
@@ -175,22 +175,26 @@ const Home = () => {
           ))}
         </div>
 
-        <GoogleMap zoom={10} center={marker} mapContainerClassName={styles.mapContainer} onClick={onMapClick}>
-          <Marker
-            position={{
-              lat: marker.lat,
-              lng: marker.lng
-            }} />
-          <Circle
-            center={marker}
-            radius={5000}
-            onLoad={() => console.log('Circle Load...')}
-            options={{
-              fillColor: 'red',
-              strokeColor: 'red',
-              strokeOpacity: 0.8,
-            }}
-          />
+        <GoogleMap zoom={10} center={marker || { lat: 21.019031654681395, lng: 105.83697505428268 }} mapContainerClassName={styles.mapContainer} onClick={onMapClick}>
+          {marker && (
+            <>
+              <Marker
+                position={{
+                  lat: marker.lat,
+                  lng: marker.lng
+                }} />
+              <Circle
+                center={marker}
+                radius={5000}
+                onLoad={() => console.log('Circle Load...')}
+                options={{
+                  fillColor: 'red',
+                  strokeColor: 'red',
+                  strokeOpacity: 0.8,
+                }}
+              />
+            </>
+          )}
         </GoogleMap>
       </main>
     </>

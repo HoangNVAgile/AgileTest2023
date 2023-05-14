@@ -71,6 +71,7 @@ const tokenManager = new TokenManager({
     }
   },
 });
+
 const privateRequest = async (request: any, suffixUrl: string, configs?: any) => {
   const token: string = configs?.token
     ? configs?.token

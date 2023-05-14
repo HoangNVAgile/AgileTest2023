@@ -1,0 +1,10 @@
+node_modules
+.next
+.vscode
+*.DS_Store
+.gitignore
+README.md
+.dockerignore
+.gitlab
+.git
+.husky
